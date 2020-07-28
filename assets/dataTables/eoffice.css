@@ -1,0 +1,22 @@
+.dataTables_scrollHeadInner{
+    width: 100% !important;
+    padding-right: 17px;
+}
+table {
+    width: 100% !important;
+}
+.card{
+    word-wrap: break-word !important; 
+}
+tbody tr:nth-child(even){
+    background-color: var(--teal);;
+    color: #ffffff;
+    
+  }
+  a.active.nav-link {
+
+    background-color: #0000ff73 !important;
+  
+  }
+
+ 
