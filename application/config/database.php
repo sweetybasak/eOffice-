@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'postgres',
-	'password' => 'root',
-	'database' => 'skeleton',
+	'hostname' => 'ec2-54-243-67-199.compute-1.amazonaws.com ',
+	'username' => 'xpdroqvpqlxglp ',
+	'password' => '85744831902f85d4a1372b1c209b96c2326ab978253a5fd3dfe98f394f65ab52',
+	'database' => 'd64ueo6267basi ',
 	'dbdriver' => 'postgre',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -93,5 +93,5 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE,
-	'port' => 5433
+	'port' => 5432
 );
