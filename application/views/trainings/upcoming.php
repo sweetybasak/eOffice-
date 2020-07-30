@@ -308,6 +308,8 @@
            
 
             "scrollY": "400px",
+            "scrollX": '50vh',
+           "scrollCollapse": true,
             "paging": false,
           "processing": true,
             "serverSide": true,
