@@ -13,7 +13,7 @@ class Report extends CI_Controller {
         $this->load->helper('form');
         $this->load->helper('file');
         $this->load->library('CSVReader');
-        $this->load->library('csvimport');
+   
         $this->load->model('Dashboard_model','dashboard');
        
     }

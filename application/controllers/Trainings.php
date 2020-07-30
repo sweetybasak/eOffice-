@@ -13,7 +13,7 @@ class Trainings extends CI_Controller {
         $this->load->helper('form');
         $this->load->helper('file');
         $this->load->library('CSVReader');
-        $this->load->library('csvimport');
+     
         $this->load->library('session');
         $this->load->helper('security');
 

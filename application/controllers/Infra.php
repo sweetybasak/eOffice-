@@ -5,7 +5,7 @@
             $this->load->database();
          
             $this->load->library('form_validation');
-           $this->load->library('csvimport');
+           
            $this->load->library('upload');
            $this->load->library('session');
            $this->load->model('Infra_model');
