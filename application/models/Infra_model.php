@@ -298,11 +298,11 @@ class Infra_model extends CI_Model {
          $this->db->where('infradirectorate.spoffice', $this->input->post('spoffice'));
      }
     
-     $this->db->select('district.name as districtname,*');
+     $this->db->select('spoffice.name as districtname,*');
      $this->db->from('infradirectorate');
      $this->db->join('spoffice','spoffice.id=infradirectorate.spoffice');
      $this->db->where('infradirectorate.spoffice is not null');
-     $this->db->group_by(array("spoffice.name","total_users","users_system","new_system","dsc","scanners","printers","dsc_required","printer_required","scanners_required","system_required","isp","bandwidth","cabling","infradirectorate.district","infradirectorate.id","district.id"));
+     $this->db->group_by(array("spoffice.name","total_users","users_system","new_system","dsc","scanners","printers","dsc_required","printer_required","scanners_required","system_required","isp","bandwidth","cabling","infradirectorate.spoffice","infradirectorate.id","spoffice.id"));
      $i=0;
      foreach($this->column_search3 as $item) 
      {
@@ -321,6 +321,7 @@ class Infra_model extends CI_Model {
          }
          $i++;
      }
+     
 
      if(isset($_POST['order'])) {
          $this->db->order_by($this->column_order3[$_POST['order']['0']['column']],$_POST['order']['0']['dir']);

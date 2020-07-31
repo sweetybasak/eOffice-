@@ -40,6 +40,9 @@ background-color: #0000ff73 !important;
 table {
     width: 100% !important;
 } 
+.bg-dark{
+background-color: #21252975!important;
+}
           
 </style>
 
@@ -60,9 +63,9 @@ table {
 <div class="tab-content">
       <div class="tab-pane active" id="department" role="tabpanel">
          
-                    <div class="row">
-                        <div class="col-sm-10 background-left">
-                            <div class="card text-blank border-1 ">
+                  <br>  <div class="row">
+                        <div class="col-sm-12 background-left">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title text-center">
                                         <h3> <i class="fa fa-search"></i> Search</h3>
@@ -115,7 +118,8 @@ table {
                                                 </div>
                                                
                                          </div>
-                                       
+                                        
+                                             
                                         <div class="form-row align-items-center">
                                         <div class="form-group col-sm-4"></div>
                                                     <div class="form-group col-sm-2 text-center" >
@@ -136,12 +140,12 @@ table {
                                                         </div>
                                      
                                    
-                    
+                  <br>  
                     <div class="row">
                         <div class="col background-left p-5 pb-5">
                             <div class="row">
                                 <div class=" col-sm-12">
-                                    <div class="card text-blank border-1">
+                                    <div class="card text-blank border-1 border-info">
                                         <div class="card-body">
                                             <div class="card-title text-center">
                                                 <h5><i class="fa fa-university"></i>Trainings Programmes Details</h5>
@@ -172,9 +176,10 @@ table {
                     </div>
 </div>
 <div class="tab-pane" id="directorate_tab" role="tabpanel">
+<br>
 <div class="row">
                         <div class="col-sm-10 background-left">
-                            <div class="card text-blank border-1 ">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title text-center">
                                         <h3> <i class="fa fa-search"></i> Search</h3>
@@ -227,6 +232,7 @@ table {
                                                 </div>
                                                
                                          </div>
+                                         
                                        
                                         <div class="form-row align-items-center">
                                         <div class="form-group col-sm-4"></div>
@@ -247,13 +253,13 @@ table {
                       
                                                         </div>
                                      
-                                   
+                    <br>               
                     
                     <div class="row">
                         <div class="col background-left p-5 pb-5">
                             <div class="row">
                                 <div class=" col-sm-12">
-                                    <div class="card text-blank border-1">
+                                    <div class="card text-blank border-1 border-info">
                                         <div class="card-body">
                                             <div class="card-title text-center">
                                                 <h5><i class="fa fa-university"></i>Trainings Programmes Details</h5>
@@ -285,9 +291,10 @@ table {
 </div>
 </div>
 <div class="tab-pane" id="district_tab" role="tabpanel">
+<br>
 <div class="row">
                         <div class="col-sm-10 background-left">
-                            <div class="card text-blank border-1 ">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title text-center">
                                         <h3> <i class="fa fa-search"></i> Search</h3>
@@ -340,7 +347,7 @@ table {
                                                 </div>
                                                
                                          </div>
-                                       
+                                         
                                         <div class="form-row align-items-center">
                                         <div class="form-group col-sm-4"></div>
                                                     <div class="form-group col-sm-2 text-center" >
@@ -361,12 +368,12 @@ table {
                                                         </div>
                                      
                                    
-                    
+                    <br>
                     <div class="row">
                         <div class="col background-left p-5 pb-5">
                             <div class="row">
                                 <div class=" col-sm-12">
-                                    <div class="card text-blank border-1">
+                                    <div class="card text-blank border-1 border-info">
                                         <div class="card-body">
                                             <div class="card-title text-center">
                                                 <h5><i class="fa fa-university"></i>Trainings Programmes Details</h5>
@@ -401,9 +408,10 @@ table {
 </div>
 
 <div class="tab-pane" id="spoffice_tab" role="tabpanel">
+<br>
 <div class="row">
                         <div class="col-sm-10 background-left">
-                            <div class="card text-blank border-1 ">
+                            <div class="card text-blank border-1 border-dark bg-dark ">
                                 <div class="card-body">
                                     <div class="card-title text-center">
                                         <h3> <i class="fa fa-search"></i> Search</h3>
@@ -457,6 +465,7 @@ table {
                                                
                                          </div>
                                        
+                                       
                                         <div class="form-row">
                                                     <div class="form-group col-sm-4"></div>
                                                     <div class="form-group col-sm-2 text-center" >
@@ -477,12 +486,12 @@ table {
                                                         </div>
                                      
                                    
-                    
+                    <br>
                     <div class="row">
                         <div class="col background-left p-5 pb-5">
                             <div class="row">
                                 <div class=" col-sm-12">
-                                    <div class="card text-blank border-1">
+                                    <div class="card text-blank border-1 border-info">
                                         <div class="card-body">
                                             <div class="card-title text-center">
                                                 <h5><i class="fa fa-university"></i>Trainings Programmes Details</h5>

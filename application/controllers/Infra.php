@@ -206,9 +206,7 @@
 
   
    public function ajax_list_spoffice() {
-    $draw = intval($this->input->get("draw"));
-    $start = intval($this->input->get("start"));
-    $length = intval($this->input->get("length"));
+    
        $list = $this->Infra_model->get_datatables_spoffice();
 
        
@@ -218,7 +216,7 @@
            $no++;
            $row = array();
            $row[] = $no;
-           $row[] = $cu->directoratename;
+           $row[] = $cu->districtname;
            $row[] = $cu->total_users;
            $row[] = $cu->users_system;
            $row[] = $cu->new_system;
@@ -243,7 +241,7 @@
        }
 
        $output = array(
-           "draw" => $draw,
+           "draw" => $_POST['draw'],
            "recordsTotal" => $this->Infra_model->count_all_spoffice(),
            "recordsFiltered" => $this->Infra_model->count_filtered_spoffice(),
            "data" => $data,
