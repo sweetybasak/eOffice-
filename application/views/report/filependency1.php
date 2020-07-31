@@ -15,11 +15,16 @@
 <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.flash.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.html5.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.4.0/js/buttons.print.min.js"></script>
-
+<title>File Pendency Report</title>
 
 <link rel="stylesheet" type="text/css"  href="<?php echo base_url(); ?>assets/dataTables/eoffice.css" />
 <script src="<?php echo base_url(); ?>assets/files/filependency.js"></script>
 
+<style>
+ .bg-dark{
+background-color: #21252975!important;
+}
+</style>
 
 
 
@@ -43,9 +48,10 @@
 </ul>
 <div class="tab-content">
       <div class="tab-pane active" id="department" role="tabpanel">
+      <br>
                 <div class="col-12">
                         <div class="offset-sm-2 col-sm-6">
-                            <div class="card text-blank border-1 bg-light">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title">
                                         <h5><b>Filter</b></h5>
@@ -76,10 +82,11 @@
                             </div>
                         </div>
     <br>
-                        <div class="card text-blank border-1">
+                        <div class="card text-blank border-1 border-info">
                         <div class="card-body">
                             <div class="card-title text-center">
-                                <h4>Search Results</h4>
+                                <h4> <i class="fa fa-search"></i>
+                                Search Results</h4>
                             </div>
                             <div class="card-text">
                            
@@ -117,9 +124,10 @@
 </div>
 
 <div class="tab-pane" id="directorate_tab" role="tabpanel">
+<br>
                 <div class="col">
                         <div class="offset-sm-2 col-sm-6">
-                            <div class="card text-blank border-1 bg-light">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title">
                                         <h5><b>Filter</b></h5>
@@ -139,7 +147,7 @@
                                                         <input type="submit" class="btn btn-block btn-primary" id="button1" value="Submit">
                                                     </div>
                                                     <div class="form-group col-sm-4 text-center">
-                                                        <button type="submit" class="btn btn-block btn-primary" name="btn-reset">Reset</button>
+                                                        <button type="submit" class="btn btn-block btn-danger" name="btn-reset">Reset</button>
                                                     </div>
                                                 </div>
                                             
@@ -150,10 +158,12 @@
                             </div>
                         </div>
 <br>
-                        <div class="card text-blank border-1">
+                        <div class="col-sm-12">
+                        <div class="card text-blank border-1 border-info">
                         <div class="card-body">
                             <div class="card-title text-center">
-                                <h4>Search Results</h4>
+                                <h4> <i class="fa fa-search"></i>
+                                Search Results</h4>
                             </div>
                             <div class="card-text">
                            
@@ -180,7 +190,7 @@
                                     
                                 </tbody>
                             </table>
-                            
+                            </div>
                             </div>
                         </div>
                       </div>
@@ -192,9 +202,10 @@
 
 
 <div class="tab-pane" id="district_tab" role="tabpanel">
+<br>
 <div class="col">
                         <div class="offset-sm-2 col-sm-6">
-                            <div class="card text-blank border-1 bg-light">
+                            <div class="card text-blank border-dark border-1 bg-dark">
                                 <div class="card-body">
                                     <div class="card-title">
                                         <h5><b>Filter</b></h5>
@@ -214,7 +225,7 @@
                                                         <input type="submit" class="btn btn-block btn-primary" id="btn-filter2" value="Submit">
                                                     </div>
                                                     <div class="form-group col-sm-4 text-center">
-                                                        <button type="submit" class="btn btn-block btn-primary" name="btn-reset2">Reset</button>
+                                                        <button type="submit" class="btn btn-block btn-danger" name="btn-reset2">Reset</button>
                                                     </div>
                                                 </div>
                                             
@@ -225,10 +236,11 @@
                             </div>
                         </div>
 <br>
-                        <div class="card text-blank border-1">
+                        <div class="card text-blank border-1 border-info">
                         <div class="card-body">
                             <div class="card-title text-center">
-                                <h4>Search Results</h4>
+                                <h4> <i class="fa fa-search"></i>
+                                Search Results</h4>
                             </div>
                             <div class="card-text">
                            
@@ -265,9 +277,10 @@
 </div>
 
 <div class="tab-pane" id="spoffice_tab" role="tabpanel">
+<br>
 <div class="col">
                         <div class="offset-sm-2 col-sm-6">
-                            <div class="card text-blank border-1 bg-light">
+                            <div class="card text-blank border-dark border-1 bg-dark">
                                 <div class="card-body">
                                     <div class="card-title">
                                         <h5><b>Filter</b></h5>
@@ -287,7 +300,7 @@
                                                         <input type="submit" class="btn btn-block btn-primary" id="btn-filter3" value="Submit">
                                                     </div>
                                                     <div class="form-group col-sm-4 text-center">
-                                                        <button type="submit" class="btn btn-block btn-primary" name="btn-reset3">Reset</button>
+                                                        <button type="submit" class="btn btn-block btn-danger" name="btn-reset3">Reset</button>
                                                     </div>
                                                 </div>
                                             
@@ -298,10 +311,11 @@
                             </div>
                         </div>
 <br>
-                        <div class="card text-blank border-1">
+                        <div class="card text-blank border-1 border-info">
                         <div class="card-body">
                             <div class="card-title text-center">
-                                <h4>Search Results</h4>
+                                <h4><i class="fa fa-search"></i>
+                                Search Results</h4>
                             </div>
                             <div class="card-text">
                            
