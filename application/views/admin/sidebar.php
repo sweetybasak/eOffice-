@@ -25,7 +25,7 @@
 <body class="hold-transition sidebar-mini layout-fixed ">
     
         
-    <aside class="main-sidebar bg-gradient-green sidebar-dark-maroon elevation-4 " style="color: black;">
+    <aside class="main-sidebar bg-gradient-grey sidebar-dark-maroon elevation-4 " style="color: black;">
         <a href="#" class="brand-link">
             <img src="<?php echo base_url(); ?>assets/img/eoffice.png" alt="Logo" class="brand-image img-circle elevation-3"
             style="opacity: .8">
