@@ -33,21 +33,25 @@
  .modal:nth-of-type(even){
      z-index: 1052 !important;
  }
+ .bg-dark{
+background-color: #21252975!important;
+}
+    
 
  
  </style>
 
 
 <body>
-    <br><br>
+    <br>
 
     <main id="main">
         <section id="contact">
             <div class="container-fluid">
                
                     <div class="row">
-                        <div class="col-sm-10 background-left">
-                            <div class="card text-blank border-1 ">
+                        <div class="col-sm-12 background-left">
+                            <div class="card text-blank border-1 border-dark bg-dark">
                                 <div class="card-body">
                                     <div class="card-title text-center">
                                         <h3> <i class="fa fa-search"></i> Search</h3>
@@ -194,12 +198,12 @@
                                                         </div>
                                      
                                    
-                    
+                   <br> 
                     <div class="row">
                         <div class="col background-left">
                             <div class="row">
                                 <div class=" col-sm-12">
-                                    <div class="card text-blank border-1">
+                                    <div class="card text-blank border-1 border-info">
                                         <div class="card-body">
                                             <div class="card-title text-center">
                                                 <h5><i class="fa fa-university"></i>Trainings Programmes Details</h5>
@@ -315,7 +319,10 @@
          
            "scrollY": "400px",
            "scrollX": '50vh',
+
+
            "scrollCollapse": true,
+
         "processing": true,
             "serverSide": true,
             "paging": false,
