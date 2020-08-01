@@ -817,7 +817,7 @@ foreach($departmental as $row) :
 
                     <div class="card-body">
                     <?php if($this->session->userdata('role') === 'Super Admin' || $this->session->userdata('role') === 'Admin') {?>
- <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal4"> <i class="fa fa-plus"></i> Assign SPOffice</button><br/>
+ <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#addNewModal4"> <i class="fa fa-plus"></i> Assign Offices</button><br/>
                     <?php } ?>
                     <br>
                     
@@ -901,8 +901,8 @@ foreach($departmental as $row) :
                         </select>
                     </div>
                 </div>
-                            <?php } ?>
-                            <?php if($this->session->userdata('role') === ' Super Admin') { ?>
+                            
+                         
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Directorates</label>
                     <div class="col-sm-9">
@@ -913,19 +913,9 @@ foreach($departmental as $row) :
                         </select>
                     </div>
                 </div>
-                            <?php } else { ?>
-                              <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Directorates</label>
-                    <div class="col-sm-9">
-                        <select class="bootstrap-select" name="directorate[]" data-width="100%" data-live-search="true" multiple required>
-                            <?php foreach ($directorate1->result() as $row) :?>
-                                <option value="<?php echo $row->id;?>"><?php echo $row->name;?></option>
-                            <?php endforeach;?>
-                        </select>
-                    </div>
-                </div>
-                            <?php } ?>
-                            <?php if($this->session->userdata('role') === 'Super Admin') { ?>
+                            
+                            
+                          
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">District</label>
                     <div class="col-sm-9">

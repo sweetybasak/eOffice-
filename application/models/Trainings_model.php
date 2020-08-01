@@ -603,6 +603,7 @@ function count_filtered_programme()
         $query = $this->db->get();
         return $query->result();
     }
+    
     public function getallemdtotaldistricts($dept) {
         $this->db->select('emd1.id as id,emd1.name as name,emd1.designation,emd1.email,emd1.dept as dname,
         emd1.directorate as directorate,district.name as district,emd1.spoffice,emd1.type,emd1.files');
@@ -640,7 +641,7 @@ function count_filtered_programme()
        depttrainings.trainingid=trainings.id  left join dept on 
         dept.id=depttrainings.dname left join courses on courses.id=trainings.course left join
        venue on venue.id=trainings.venue
-       where depttrainings.dname=$d  group by trainings.title,starting,type,files,courses.name,venue.name,trainings.id");
+       where depttrainings.dname=$d and trainings.type!='Combined' group by trainings.title,starting,type,files,courses.name,venue.name,trainings.id");
         return $query->result();
 
     }
@@ -652,6 +653,7 @@ function count_filtered_programme()
         $this->db->join('courses','courses.id=trainings.course','left');
         $this->db->join('venue','venue.id=trainings.venue','left');
         $this->db->where('depttrainings.directorate',$d);
+        $this->db->where("trainings.type!='Combined'");
         $this->db->group_by(array("trainings.title","courses.name","venue.name","starting","trainings.id"));
         $query1 = $this->db->get();
         return $query1->result();
@@ -665,6 +667,7 @@ function count_filtered_programme()
         $this->db->join('courses','courses.id=trainings.course','left');
         $this->db->join('venue','venue.id=trainings.venue','left');
         $this->db->where('depttrainings.district',$d);
+        $this->db->where("trainings.type!='Combined'");
         $this->db->group_by(array("trainings.title","courses.name","venue.name","starting","trainings.id"));
         $query1 = $this->db->get();
         return $query1->result();
@@ -678,6 +681,7 @@ function count_filtered_programme()
         $this->db->join('courses','courses.id=trainings.course','left');
         $this->db->join('venue','venue.id=trainings.venue','left');
         $this->db->where('depttrainings.spoffice',$d);
+        $this->db->where("trainings.type!='Combined'");
         $this->db->group_by(array("trainings.title","courses.name","venue.name","starting","trainings.id"));
         $query1 = $this->db->get();
         return $query1->result();

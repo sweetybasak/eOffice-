@@ -378,19 +378,7 @@ foreach($departmental as $row) :
                                </select>
                     </div>
                 </div>
-                
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Districts</label>
-                    <div class="col-sm-9">
-                        <select class="bootstrap-select" name="district[]" data-width="100%" data-live-search="true" multiple required>
-                            <?php foreach ($district->result() as $row) :?>
-                                <option value="<?php echo $row->id;?>"><?php echo $row->name;?></option>
-                            <?php endforeach;?>
-                        </select>
-                    </div>
-                </div>
- 
-              </div>
+               
               <div class="modal-footer">
               <button type="submit" class="btn btn-success btn-sm">Save</button>
                 <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
