@@ -1,4 +1,4 @@
- <?php $this->load->view('admin/sidebar');
+<?php $this->load->view('admin/sidebar');
 $this->load->view('admin/header'); ?>
 <!-- DataTables -->
 <html data-base-url="<?php echo base_url(); ?>">
@@ -7,7 +7,7 @@ $this->load->view('admin/header'); ?>
   <link rel="stylesheet" href="<?php echo base_url();?>assets/AdminLTE-3.0.4/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <!-- Theme style -->
 <br>
-<script src="<?php echo base_url(); ?>assets/files/extra.js"></script>
+<script src="<?php echo base_url(); ?>assets/files/extra1.js"></script>
 
 <br>
 <div class="wrapper">

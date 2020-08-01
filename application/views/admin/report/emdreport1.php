@@ -290,8 +290,9 @@ $this->load->view('admin/header'); ?>
                                         <th>Name of the Person</th>
                                       
                                         
-                                        <th>Department</th>
                                         <th>Designation</th>
+                                        
+                                        <th>Department</th>
                                         <th>Directorate</th>
                                         <th>District</th>
                                         <th>SP Office</th>
