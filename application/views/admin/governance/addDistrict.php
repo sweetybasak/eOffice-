@@ -118,6 +118,21 @@ $this->load->view('admin/header'); ?>
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="control-label col-md-4">Post</label>
+                            <div class="col-md-8">
+                                
+                                    <select name="post" class="form-control">
+                                        <option value="">No Selected</option>
+                                        <option value="Nodal Officer">Nodal Officer</option>
+                                        <option value="Master Trainer">Master Trainer</option>
+                                        <option value="EMD Managers">EMD Manager</option>
+                                
+                                    </select>
+                               
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="control-label col-md-4">Email</label>
                             <div class="col-md-8">
                               
@@ -165,9 +180,7 @@ $this->load->view('admin/header'); ?>
                     </div>
 
                     <div class="card-body">
-                    <div class="alert alert-success" id="successmessage1"></div>
-                    <button class="btn btn-success" onclick="add_master_district()"><i class="fas fa-plus"></i> Add Master Trainers</button>
-        <button class="btn btn-default" onclick="reload_table_master()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+                       <button class="btn btn-default" onclick="reload_table_master()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
         
@@ -190,85 +203,7 @@ $this->load->view('admin/header'); ?>
                             </tbody>
                         </table>
                         <!-- Bootstrap modal -->
-<div class="modal fade" id="modal_form1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h3 class="modal-title w-100 text-center">Master Trainer Form</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-               
-            </div>
-            <div class="modal-body form">
-                <form action="#" id="form1" class="form-horizontal">
-                    <input type="hidden" value="" name="id"/> 
-                    <div class="form-body">
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Name of the Master Trainers</label>
-                            <div class="col-md-8">
-                            <input name="m_name" placeholder="Enter Name" class="form-control" type="text" required>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Designation</label>
-                            <div class="col-md-8">
-                                
-                                    <select name="designation" class="form-control">
-                                        <option value="">No Selected</option>
-                                        <?php foreach($designation as $d):?>
-                                        <option value="<?php echo $d->name ?>"><?php echo $d->name ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                               
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">District</label>
-                            <div class="col-md-8">
-                                
-                                    <select name="district" class="form-control">
-                                        <option value="">No Selected</option>
-                                        <?php foreach($district as $d):?>
-                                        <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                               
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                       
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Email</label>
-                            <div class="col-md-8">
-                              
-                            <input name="email" placeholder="Enter Email" class="form-control" type="email" required>
-                            
-                                
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Phone</label>
-                            <div class="col-md-8">
-                              
-                            <input name="phone" placeholder="Enter Phone" class="form-control" type="text" maxlength="10"required>
-                            
-                                
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnSave1" onclick="save_master()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+
                     </div>
                 </div>
             </div>
@@ -286,9 +221,7 @@ $this->load->view('admin/header'); ?>
                     </div>
 
                     <div class="card-body">
-                    <div class="alert alert-success" id="successmessage2"></div>
-                    <button class="btn btn-success" onclick="add_emd_district()"><i class="fas fa-plus"></i> Add EMD Managers</button>
-        <button class="btn btn-default" onclick="reload_table_emd()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
+                     <button class="btn btn-default" onclick="reload_table_emd()"><i class="glyphicon glyphicon-refresh"></i> Reload</button>
         <br />
         <br />
         
@@ -311,85 +244,7 @@ $this->load->view('admin/header'); ?>
                             </tbody>
                         </table>
                         <!-- Bootstrap modal -->
-<div class="modal fade" id="modal_form2" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h3 class="modal-title w-100 text-center">EMD Managers Form</h3>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                
-            </div>
-            <div class="modal-body form">
-                <form action="#" id="form2" class="form-horizontal">
-                    <input type="hidden" value="" name="id"/> 
-                    <div class="form-body">
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Name of the EMD Managers</label>
-                            <div class="col-md-8">
-                            <input name="e_name" placeholder="Enter Name" class="form-control" type="text" required>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Designation</label>
-                            <div class="col-md-8">
-                                
-                                    <select name="designation" class="form-control">
-                                        <option value="">No Selected</option>
-                                        <?php foreach($designation as $d):?>
-                                        <option value="<?php echo $d->name ?>"><?php echo $d->name ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                               
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">District</label>
-                            <div class="col-md-8">
-                                
-                                    <select name="district" class="form-control">
-                                        <option value="">No Selected</option>
-                                        <?php foreach($district as $d):?>
-                                        <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                               
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Email</label>
-                            <div class="col-md-8">
-                              
-                            <input name="email" placeholder="Enter Email" class="form-control" type="email" required>
-                            
-                                
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="control-label col-md-4">Phone</label>
-                            <div class="col-md-8">
-                              
-                            <input name="phone" placeholder="Enter Phone" class="form-control" type="text" maxlength="10"required>
-                            
-                                
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="btnSave2" onclick="save_emd()" class="btn btn-primary">Save</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-                    </div>
+</div>
                 </div>
             </div>
         </div>

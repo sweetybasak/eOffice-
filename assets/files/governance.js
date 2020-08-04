@@ -261,7 +261,9 @@ function save()
     if(save_method == 'add') {
         url =baseurl + "governance/add_nodal";
     } else {
+       
         url = baseurl +"governance/update_nodal";
+        
     }
  
     // ajax adding data to database
@@ -284,6 +286,8 @@ function save()
                         $('#successmessage').fadeOut("slow");
                     }, 2000);
                 reload_table();
+                reload_table1();
+                reload_table2();
             }
             else
             {
@@ -341,20 +345,11 @@ function delete_course(id)
  
  
  
-function add_master()
-{
-    save_method = 'add';
-    $('#form1')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form1').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Add Master Trainer'); // Set Title to Bootstrap modal title
-}
- 
+
 function edit_master(id)
-{ $('.dept1').change(function() {
+{ $('.dept').change(function() {
         var id = $(this).val();
-        var directorate = $(this).val('directorate1');
+        var directorate = $(this).val('directorate');
         $.ajax({
             url:baseurl + "governance/getDirectorate",
             method: "POST",
@@ -380,7 +375,7 @@ function edit_master(id)
  
 
     save_method = 'update';
-    $('#form1')[0].reset(); // reset form on modals
+    $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
  
@@ -393,7 +388,7 @@ function edit_master(id)
         {
             
             $('[name="id"]').val(data.id);
-            $('[name="m_name"]').val(data.m_name);
+            $('[name="n_name"]').val(data.m_name);
             $('[name="dept"]').val(data.dept);
             $('[name="designation"]').val(data.designation);
             $('[name="directorate"]').val(data.directorate);
@@ -402,7 +397,7 @@ function edit_master(id)
         
         
            
-            $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
+            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Master Trainer'); // Set title to Bootstrap modal title
  
         },
@@ -418,62 +413,7 @@ function reload_table1()
     otable.ajax.reload(null,false); //reload datatable ajax 
 }
  
-function save1()
-{
-    $('#btnSave1').text('saving...'); //change button text
-    $('#btnSave1').attr('disabled',true); //set button disable 
-    var url;
- 
-    if(save_method == 'add') {
-        url = baseurl +"governance/add_master";
-    } else {
-        url = baseurl +"governance/update_master";
-    }
- 
-    // ajax adding data to database
-    $.ajax({
-        url : url,
-        type: "POST",
-        data: $('#form1').serialize(),
-        dataType: "JSON",
-        success: function(data)
-        {
- 
-            if(data.status) //if success close modal and reload ajax table
-            {
-               
-                $('#modal_form1').modal('hide');
-                $('#successmessage1').show();
-                $('#successmessage1').fadeIn().html(data.message);
-                    setTimeout(function () {
-                        $('#successmessage1').fadeOut("slow");
-                    }, 2000);
-                reload_table1();
-            }
-            else
-            {
-              
 
-                for (var i = 0; i < data.inputerror.length; i++) 
-                {
-                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                }
-            }
-            $('#btnSave1').text('save'); //change button text
-            $('#btnSave1').attr('disabled',false); //set button enable 
- 
- 
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error adding / update data');
-            $('#btnSave1').text('save'); //change button text
-            $('#btnSave1').attr('disabled',false); //set button enable 
- 
-        }
-    });
-}
  
 function delete_master(id)
 {
@@ -505,21 +445,13 @@ function delete_master(id)
     }
 }
 
-function add_emd()
-{
-    save_method = 'add';
-    $('#form2')[0].reset(); // reset form on modals
-    $('.form-group').removeClass('has-error'); // clear error class
-    $('.help-block').empty(); // clear error string
-    $('#modal_form2').modal('show'); // show bootstrap modal
-    $('.modal-title').text('Add EMD Manager'); // Set Title to Bootstrap modal title
-}
+
  
 function edit_emd(id)
 {
     
     save_method = 'update';
-    $('#form2')[0].reset(); // reset form on modals
+    $('#form')[0].reset(); // reset form on modals
     $('.form-group').removeClass('has-error'); // clear error class
     $('.help-block').empty(); // clear error string
  
@@ -532,7 +464,7 @@ function edit_emd(id)
         {
             
             $('[name="id"]').val(data.id);
-            $('[name="e_name"]').val(data.e_name);
+            $('[name="n_name"]').val(data.e_name);
             $('[name="dept"]').val(data.dept);
             $('[name="designation"]').val(data.designation);
             $('[name="directorate"]').val(data.directorate);
@@ -540,7 +472,7 @@ function edit_emd(id)
             $('[name="phone"]').val(data.phone);
         
            
-            $('#modal_form2').modal('show'); // show bootstrap modal when complete loaded
+            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit EMD Manager'); // Set title to Bootstrap modal title
  
         },
@@ -556,61 +488,7 @@ function reload_table2()
     mtable.ajax.reload(null,false); //reload datatable ajax 
 }
  
-function save2()
-{
-    $('#btnSave2').text('saving...'); //change button text
-    $('#btnSave2').attr('disabled',true); //set button disable 
-    var url;
- 
-    if(save_method == 'add') {
-        url = baseurl +"governance/add_emd";
-    } else {
-        url = baseurl +"governance/update_emd";
-    }
- 
-    // ajax adding data to database
-    $.ajax({
-        url : url,
-        type: "POST",
-        data: $('#form2').serialize(),
-        dataType: "JSON",
-        success: function(data)
-        {
- 
-            if(data.status) //if success close modal and reload ajax table
-            {
-               
-                $('#modal_form2').modal('hide');
-                $('#successmessage2').show();
-                $('#successmessage2').fadeIn().html(data.message);
-                    setTimeout(function () {
-                        $('#successmessage2').fadeOut("slow");
-                    }, 2000);
-                reload_table2();
-            }
-            else
-            {
-            
-                for (var i = 0; i < data.inputerror.length; i++) 
-                {
-                    $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                    $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                }
-            }
-            $('#btnSave2').text('save'); //change button text
-            $('#btnSave2').attr('disabled',false); //set button enable 
- 
- 
-        },
-        error: function (jqXHR, textStatus, errorThrown)
-        {
-            alert('Error adding / update data');
-            $('#btnSave2').text('save'); //change button text
-            $('#btnSave2').attr('disabled',false); //set button enable 
- 
-        }
-    });
-}
+
  
 function delete_emd(id)
 {
@@ -798,6 +676,7 @@ function delete_emd(id)
              $('[name="n_name"]').val(data.n_name);
              $('[name="district"]').val(data.district);
              $('[name="designation"]').val(data.designation);
+             $('[name="post"]').val(data.post);
              $('[name="email"]').val(data.email);
              $('[name="phone"]').val(data.phone);
          
@@ -850,7 +729,9 @@ function delete_emd(id)
                      setTimeout(function () {
                          $('#successmessage').fadeOut("slow");
                      }, 2000);
-                 reload_table();
+                 reload_table_nodal();
+                 reload_table_master();
+                 reload_table_emd();
              }
              else
              {
@@ -911,20 +792,12 @@ function delete_emd(id)
   
   
   
- function add_master_district()
- {
-     save_method = 'add';
-     $('#form1')[0].reset(); // reset form on modals
-     $('.form-group').removeClass('has-error'); // clear error class
-     $('.help-block').empty(); // clear error string
-     $('#modal_form1').modal('show'); // show bootstrap modal
-     $('.modal-title').text('Add Master Trainer'); // Set Title to Bootstrap modal title
- }
+ 
   
  function edit_master_district(id)
  { 
      save_method = 'update';
-     $('#form1')[0].reset(); // reset form on modals
+     $('#form')[0].reset(); // reset form on modals
      $('.form-group').removeClass('has-error'); // clear error class
      $('.help-block').empty(); // clear error string
   
@@ -937,15 +810,16 @@ function delete_emd(id)
          {
              
              $('[name="id"]').val(data.id);
-             $('[name="m_name"]').val(data.m_name);
+             $('[name="n_name"]').val(data.m_name);
              $('[name="district"]').val(data.district);
              $('[name="designation"]').val(data.designation);
+             $('[name="post"]').val(data.post);
              $('[name="email"]').val(data.email);
              $('[name="phone"]').val(data.phone);
          
          
             
-             $('#modal_form1').modal('show'); // show bootstrap modal when complete loaded
+             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
              $('.modal-title').text('Edit Master Trainer'); // Set title to Bootstrap modal title
   
          },
@@ -961,61 +835,7 @@ function delete_emd(id)
      btable.ajax.reload(null,false); //reload datatable ajax 
  }
   
- function save_master()
- {
-     $('#btnSave1').text('saving...'); //change button text
-     $('#btnSave1').attr('disabled',true); //set button disable 
-     var url;
-  
-     if(save_method == 'add') {
-         url = baseurl + "governance/add_master_district";
-     } else {
-         url = baseurl + "governance/update_master_district";
-     }
-  
-     // ajax adding data to database
-     $.ajax({
-         url : url,
-         type: "POST",
-         data: $('#form1').serialize(),
-         dataType: "JSON",
-         success: function(data)
-         {
-  
-             if(data.status) //if success close modal and reload ajax table
-             {
-                 
-                 $('#modal_form1').modal('hide');
-                 $('#successmessage1').show();
-                 $('#successmessage1').fadeIn().html(data.message);
-                     setTimeout(function () {
-                         $('#successmessage1').fadeOut("slow");
-                     }, 2000);
-                 reload_table_master();
-             }
-             else
-             {
-                
-                 for (var i = 0; i < data.inputerror.length; i++) 
-                 {
-                     $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                     $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                 }
-             }
-             $('#btnSave1').text('save'); //change button text
-             $('#btnSave1').attr('disabled',false); //set button enable 
-  
-  
-         },
-         error: function (jqXHR, textStatus, errorThrown)
-         {
-             alert('Error adding / update data... Master Trainer exists');
-             $('#btnSave1').text('save'); //change button text
-             $('#btnSave1').attr('disabled',false); //set button enable 
-  
-         }
-     });
- }
+ 
   
  function delete_master_district(id)
  {
@@ -1029,11 +849,11 @@ function delete_emd(id)
              success: function(data)
              {
                  //if success reload ajax table
-                 $('#modal_form1').modal('hide');
-                 $('#successmessage1').show();
-                 $('#successmessage1').fadeIn().html(data.message);
+                 $('#modal_form').modal('hide');
+                 $('#successmessage').show();
+                 $('#successmessage').fadeIn().html(data.message);
                      setTimeout(function () {
-                         $('#successmessage1').fadeOut("slow");
+                         $('#successmessage').fadeOut("slow");
                      }, 2000);
                  reload_table_master();
              },
@@ -1046,21 +866,13 @@ function delete_emd(id)
      }
  }
  
- function add_emd_district()
- {
-     save_method = 'add';
-     $('#form2')[0].reset(); // reset form on modals
-     $('.form-group').removeClass('has-error'); // clear error class
-     $('.help-block').empty(); // clear error string
-     $('#modal_form2').modal('show'); // show bootstrap modal
-     $('.modal-title').text('Add EMD Managers'); // Set Title to Bootstrap modal title
- }
+ 
   
  function edit_emd_district(id)
  {
      
      save_method = 'update';
-     $('#form2')[0].reset(); // reset form on modals
+     $('#form')[0].reset(); // reset form on modals
      $('.form-group').removeClass('has-error'); // clear error class
      $('.help-block').empty(); // clear error string
   
@@ -1073,15 +885,16 @@ function delete_emd(id)
          {
              
              $('[name="id"]').val(data.id);
-             $('[name="e_name"]').val(data.e_name);
+             $('[name="n_name"]').val(data.e_name);
              $('[name="district"]').val(data.district);
              $('[name="designation"]').val(data.designation);
+             $('[name="post"]').val(data.post);
              $('[name="email"]').val(data.email);
              $('[name="phone"]').val(data.phone);
          
          
             
-             $('#modal_form2').modal('show'); // show bootstrap modal when complete loaded
+             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
              $('.modal-title').text('Edit EMD Manager'); // Set title to Bootstrap modal title
   
          },
@@ -1097,62 +910,7 @@ function delete_emd(id)
      ctable.ajax.reload(null,false); //reload datatable ajax 
  }
   
- function save_emd()
- {
-     $('#btnSave2').text('saving...'); //change button text
-     $('#btnSave2').attr('disabled',true); //set button disable 
-     var url;
-  
-     if(save_method == 'add') {
-         url = baseurl + "governance/add_emd_district";
-     } else {
-         url = baseurl + "governance/update_emd_district";
-     }
-  
-     // ajax adding data to database
-     $.ajax({
-         url : url,
-         type: "POST",
-         data: $('#form2').serialize(),
-         dataType: "JSON",
-         success: function(data)
-         {
-  
-             if(data.status) //if success close modal and reload ajax table
-             {
-                 
-                 $('#modal_form2').modal('hide');
-                 $('#successmessage2').show();
-                 $('#successmessage2').fadeIn().html(data.message);
-                     setTimeout(function () {
-                         $('#successmessage2').fadeOut("slow");
-                     }, 2000);
-                 reload_table_emd();
-             }
-             else
-             {
-             
-                 
-                 for (var i = 0; i < data.inputerror.length; i++) 
-                 {
-                     $('[name="'+data.inputerror[i]+'"]').parent().parent().addClass('has-error'); //select parent twice to select div form-group class and add has-error class
-                     $('[name="'+data.inputerror[i]+'"]').next().text(data.error_string[i]); //select span help-block class set text error string
-                 }
-             }
-             $('#btnSave2').text('save'); //change button text
-             $('#btnSave2').attr('disabled',false); //set button enable 
-  
-  
-         },
-         error: function (jqXHR, textStatus, errorThrown)
-         {
-             alert('Error adding / update data... EMD Managers exists');
-             $('#btnSave2').text('save'); //change button text
-             $('#btnSave2').attr('disabled',false); //set button enable 
-  
-         }
-     });
- }
+ 
   
  function delete_emd_district(id)
  {
@@ -1166,11 +924,11 @@ function delete_emd(id)
              success: function(data)
              {
                  //if success reload ajax table
-                 $('#modal_form2').modal('hide');
-                 $('#successmessage2').show();
-                 $('#successmessage2').fadeIn().html(data.message);
+                 $('#modal_form').modal('hide');
+                 $('#successmessage').show();
+                 $('#successmessage').fadeIn().html(data.message);
                      setTimeout(function () {
-                         $('#successmessage2').fadeOut("slow");
+                         $('#successmessage').fadeOut("slow");
                      }, 2000);
                  reload_table_emd();
              },

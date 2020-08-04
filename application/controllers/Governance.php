@@ -19,6 +19,7 @@ class Governance extends CI_Controller {
 }
 
 
+
   function district(){
     if($this->session->userdata('role') === 'Admin' || $this->session->userdata('role') === 'Super Admin'){
     $data['designation'] = $this->dashboard->getDesignation();
@@ -96,13 +97,13 @@ class Governance extends CI_Controller {
   public function add_nodal()
   {
     $this->validate_nodal();
-   
-    $name = $this->input->post('n_name');
-    $designation = $this->input->post('designation');
-    $dept = $this->input->post('dept');
-    $directorate = $this->input->post('directorate');
-    $email = $this->input->post('email');
-    $phone = $this->input->post('phone');
+   $post = $this->input->post('post',TRUE);
+    $name = $this->input->post('n_name',true);
+    $designation = $this->input->post('designation',true);
+    $dept = $this->input->post('dept',true);
+    $directorate = $this->input->post('directorate',true);
+    $email = $this->input->post('email',true);
+    $phone = $this->input->post('phone',true);
 
   
     $validate = $this->dashboard->checkNodal($name,$dept);
@@ -111,6 +112,7 @@ class Governance extends CI_Controller {
       "message" => 'Nodal Officer already exists'));
     }
     else{
+      if($post === 'Nodal Officer') {
     $data = array(
       'n_name' => $name,
       'designation' => $designation,
@@ -119,6 +121,25 @@ class Governance extends CI_Controller {
       'email' => $email,
       'phone' => $phone, 
     );
+  } else if($post === 'Master Trainer') {
+    $data = array(
+      'm_name' => $name,
+      'designation' => $designation,
+      'dept' => $dept,
+      'directorate' => $directorate,
+      'email' => $email,
+      'phone' => $phone, 
+    );
+  } else if($post === 'EMD Managers') {
+    $data = array(
+      'e_name' => $name,
+      'designation' => $designation,
+      'dept' => $dept,
+      'directorate' => $directorate,
+      'email' => $email,
+      'phone' => $phone, 
+    );
+  } else {}
     
     $insert = $this->dashboard->save_nodal($data);
     echo json_encode(array("status" => TRUE,
@@ -579,6 +600,7 @@ if($this->input->post('phone') == '')
     public function update_nodal()
     {
       $this->validate_nodal();
+      $post = $this->input->post('post',true);
       $name = $this->input->post('n_name');
       $designation = $this->input->post('designation');
       $dept = $this->input->post('dept');
@@ -588,7 +610,7 @@ if($this->input->post('phone') == '')
   
   
     
-  
+  if($post === 'Nodal Officer') {
       $data = array(
         'n_name' => $name,
         'designation' => $designation,
@@ -597,7 +619,27 @@ if($this->input->post('phone') == '')
         'email' => $email,
         'phone'=> $phone, 
       );
-      
+    }
+    else if($post === 'Master Trainer') {
+      $data = array(
+        'm_name' => $name,
+        'designation' => $designation,
+        'dept' => $dept,
+        'directorate' => $directorate,
+        'email' => $email,
+        'phone'=> $phone, 
+      );
+    }
+    else if($post === 'EMD Managers') {
+      $data = array(
+        'e_name' => $name,
+        'designation' => $designation,
+        'dept' => $dept,
+        'directorate' => $directorate,
+        'email' => $email,
+        'phone'=> $phone, 
+      );
+    } else {}
         $this->dashboard->update_nodal(array('id' => $this->input->post('id')), $data);
         echo json_encode(array("status" => TRUE,"message" => 'Updated Successfully'));
     }
@@ -615,31 +657,7 @@ if($this->input->post('phone') == '')
       "message" => 'Deleted successfully'));
     }
 
-    public function update_master()
-    {
-      $this->validate_master();
-      $name = $this->input->post('m_name');
-      $designation = $this->input->post('designation');
-      $dept = $this->input->post('dept');
-      $directorate = $this->input->post('directorate');
-      $email = $this->input->post('email');
-      $phone = $this->input->post('phone');
-  
-    
-  
-      $data = array(
-        'm_name' => $name,
-        'designation' => $designation,
-        'dept' => $dept,
-        'directorate' => $directorate,
-        'email' => $email,
-        'phone' => $phone 
-      );
-      
-        $this->dashboard->update_master(array('id' => $this->input->post('id')), $data);
-        echo json_encode(array("status" => TRUE,
-      "message" => 'Updated successfully'));
-    }
+   
     public function edit_master($id)
     {
         $data = $this->dashboard->get_by_id_master($id);
@@ -653,32 +671,7 @@ if($this->input->post('phone') == '')
         echo json_encode(array("status" => TRUE,
       "message" => 'Deleted successfully'));
     }
-    public function update_emd()
-    {
-      $this->validate_emd();
-      $name = $this->input->post('e_name');
-      $designation = $this->input->post('designation');
-      $dept = $this->input->post('dept');
-      $directorate = $this->input->post('directorate');
-      $email = $this->input->post('email');
-      $phone = $this->input->post('phone');
-  
-  
     
-  
-      $data = array(
-        'e_name' => $name,
-        'designation' => $designation,
-        'dept' => $dept,
-        'directorate' => $directorate,
-        'email' => $email,
-        'phone' => $phone, 
-      );
-      
-        $this->dashboard->update_emd(array('id' => $this->input->post('id')), $data);
-        echo json_encode(array("status" => TRUE,
-      "message" => 'Updated successfully'));
-    }
     public function edit_emd($id)
     {
         $data = $this->dashboard->get_by_id_emd($id);
@@ -736,7 +729,7 @@ if($this->input->post('phone') == '')
     public function add_nodal_district()
     {
       $this->validate_nodal_district();
-     
+     $post = $this->input->post('post',true);
       $name = $this->input->post('n_name');
       $designation = $this->input->post('designation');
       $district = $this->input->post('district');
@@ -750,7 +743,7 @@ if($this->input->post('phone') == '')
         "message" => 'Nodal Officer exists'));
       }
       else{
-  
+        if($post === 'Nodal Officer') {
       $data = array(
         'n_name' => $name,
         'designation' => $designation,
@@ -759,6 +752,27 @@ if($this->input->post('phone') == '')
         'phone' => $phone
        
       );
+      }
+      else if($post === 'Master Trainer') {
+        $data = array(
+          'm_name' => $name,
+          'designation' => $designation,
+          'district' => $district,
+          'email' => $email,
+          'phone' => $phone
+         
+        );
+        }
+       else if($post === 'EMD Managers') {
+          $data = array(
+            'e_name' => $name,
+            'designation' => $designation,
+            'district' => $district,
+            'email' => $email,
+            'phone' => $phone
+           
+          );
+          } else{}
       
       $insert = $this->dashboard->save_nodal_district($data);
       echo json_encode(array("status" => TRUE,
@@ -806,36 +820,7 @@ if($this->input->post('phone') == '')
         echo json_encode($output);
   
   }
-  public function add_master_district()
-    {
-      $this->validate_master_district();
-      $name = $this->input->post('m_name');
-      $designation = $this->input->post('designation');
-      $district = $this->input->post('district');
-      $email = $this->input->post('email');
-      $phone = $this->input->post('phone');
-     
-     $validate = $this->dashboard->checkMaster_district($name,$district);
-     if($validate->num_rows() > 0) {
-       echo json_encode(array("status" => FALSE,
-       "message" => 'Master Trainer exists'));
-     }
-     else {
-      $data = array(
-        'm_name' => $name,
-        'designation' => $designation,
-        'district' => $district,
-        'email' => $email,
-        'phone' => $phone,
-        
-      );
-      
-      $insert = $this->dashboard->save_master_district($data);
-      echo json_encode(array("status" => TRUE,
-    "message" => 'Master Trainer added successfully'));
   
-    }
-  }
   
   
     public function getEmd_district() {
@@ -873,41 +858,13 @@ if($this->input->post('phone') == '')
           echo json_encode($output);
     
     }
-    public function add_emd_district()
-      {
-        $this->validate_emd_district();
-        $name = $this->input->post('e_name');
-        $designation = $this->input->post('designation');
-        $district = $this->input->post('district');
-        $email = $this->input->post('email');
-      $phone = $this->input->post('phone');
-     
-       
-        $validate = $this->dashboard->checkemd_district($name,$district);
-        if($validate->num_rows() > 0) {
-          echo json_encode(array("status" => FALSE,
-          "message" => 'Master Trainer exists'));
-        }
-        else {
-        $data = array(
-          'e_name' => $name,
-          'designation' => $designation,
-          'district' => $district,
-          'email' => $email,
-          'phone' => $phone,
-          
-        );
-
-        
-        $insert = $this->dashboard->save_emd_district($data);
-        echo json_encode(array("status" => TRUE,
-      "message" => 'EMD Manager added successfully'));
     
-      }
-    }
+       
+        
       public function update_nodal_district()
       {
         $this->validate_nodal_district();
+        $post = $this->input->post('post');
         $name = $this->input->post('n_name');
         $designation = $this->input->post('designation');
         $district = $this->input->post('district');
@@ -916,7 +873,7 @@ if($this->input->post('phone') == '')
        
         
        
-      
+      if($post === 'Nodal Officer') {
     
         $data = array(
           'n_name' => $name,
@@ -927,6 +884,31 @@ if($this->input->post('phone') == '')
           
           
         );
+      }
+     else if($post === 'Master Trainer') {
+    
+        $data = array(
+          'm_name' => $name,
+          'designation' => $designation,
+          'district' => $district,
+          'email' => $email,
+          'phone' => $phone,
+          
+          
+        );
+      }
+     else if($post === 'EMD Managers') {
+    
+        $data = array(
+          'e_name' => $name,
+          'designation' => $designation,
+          'district' => $district,
+          'email' => $email,
+          'phone' => $phone,
+          
+          
+        );
+      } else {}
         
           $this->dashboard->update_nodal_district(array('id' => $this->input->post('id')), $data);
           echo json_encode(array("status" => TRUE,
@@ -946,30 +928,7 @@ if($this->input->post('phone') == '')
         "message" => 'Deleted successfully'));
       }
   
-      public function update_master_district()
-      {
-        $this->validate_master_district();
-        $name = $this->input->post('m_name');
-        $designation = $this->input->post('designation');
-        $district = $this->input->post('district');
-        $email = $this->input->post('email');
-        $phone = $this->input->post('phone');
-       
-        
-        $data = array(
-          'm_name' => $name,
-          'designation' => $designation,
-          'district' => $district,
-          'email' => $email,
-          'phone' => $phone,
-          
-         
-        );
-        
-          $this->dashboard->update_master_district(array('id' => $this->input->post('id')), $data);
-          echo json_encode(array("status" => TRUE,
-        "message" => 'Updated successfully'));
-      }
+      
       public function edit_master_district($id)
       {
           $data = $this->dashboard->get_by_id_master_district($id);
@@ -983,33 +942,7 @@ if($this->input->post('phone') == '')
           echo json_encode(array("status" => TRUE,
         "message" => 'Deleted successfully'));
       }
-      public function update_emd_district()
-      {
-        $this->validate_emd_district();
-        $name = $this->input->post('e_name');
-        $designation = $this->input->post('designation');
-        $district = $this->input->post('district');
-        $email = $this->input->post('email');
-        $phone = $this->input->post('phone');
-       
-        
-    
-      
-    
-        $data = array(
-          'e_name' => $name,
-          'designation' => $designation,
-          'district' => $district,
-          'email' => $email,
-          'phone' => $phone,
-          
-          
-        );
-        
-          $this->dashboard->update_emd_district(array('id' => $this->input->post('id')), $data);
-          echo json_encode(array("status" => TRUE,
-        "message" => 'Updated successfully'));
-      }
+     
       public function edit_emd_district($id)
       {
           $data = $this->dashboard->get_by_id_emd_district($id);
